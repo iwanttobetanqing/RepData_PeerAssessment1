@@ -1,14 +1,10 @@
----
-title: "Reproducible Research: Peer Assessment 1"
-output: 
-  html_document:
-    keep_md: true
----
+# Reproducible Research: Peer Assessment 1
 
 
 ## Loading and preprocessing the data
 
-```{r}
+
+```r
 unzip("activity.zip")
 activity <- read.csv("activity.csv")
 ```
@@ -17,19 +13,32 @@ activity <- read.csv("activity.csv")
 
 ### 1. Make a histogram of the total number of steps taken each day
 
-```{r}
+
+```r
 steps.date <- aggregate(steps ~ date, data = activity, FUN = sum)
 barplot(steps.date$steps, names.arg = steps.date$date, xlab = "Date", ylab = "Total Steps Each Day")
 ```
 
+![](./PA1_template_files/figure-html/unnamed-chunk-2-1.png) 
+
 ### 2. Calculate and report the mean and median total number of steps taken per day
 
-```{r}
+
+```r
 mean(steps.date$steps)
 ```
 
-```{r}
+```
+## [1] 10766.19
+```
+
+
+```r
 median(steps.date$steps)
+```
+
+```
+## [1] 10765
 ```
 
 
